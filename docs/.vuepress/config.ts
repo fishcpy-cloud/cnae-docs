@@ -8,8 +8,8 @@ export default defineUserConfig({
   title: 'CNAE Docs',
   description: '一个基于 VuePress 的CNAE Docs',
   base: '/',
-  // 设置输出目录为根目录下的dist
-  dest: '../../dist',
+  // 设置输出目录为相对路径的dist
+  dest: 'dist',
   theme: plumeTheme({
     // 主题配置
     themeColor: '#46bd87',
