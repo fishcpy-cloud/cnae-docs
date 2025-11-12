@@ -11,7 +11,7 @@
 - **cloudflare**：cloudflare优选
 - **[vercel](vercel/)**：vercel优选
 - **[netlify](netlify/)**：netlify优选
-- **edgeone**：edgeone优选
+- **[edgeone](edgeone/)**：edgeone优选
 - **zyidc**：zyidc cdn优选
 
 ## 开始配置
