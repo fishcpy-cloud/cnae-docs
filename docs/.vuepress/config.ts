@@ -50,7 +50,8 @@ export default defineUserConfig({
       '/config/': [],
       '/guide/': [
         { text: '优选配置指南', link: '/guide/' },
-        { text: 'Vercel 优选指南', link: '/guide/vercel/' }
+        { text: 'Vercel 优选指南', link: '/guide/vercel/' },
+        { text: 'Netlify 优选指南', link: '/guide/netlify/' }
       ]
     },
     plugins: {
