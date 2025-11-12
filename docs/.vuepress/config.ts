@@ -26,6 +26,11 @@ export default defineUserConfig({
       mode: 'block',
       avatar: true
     },
+    // 启用文章变更历史功能
+    changelog: {
+      maxCount: 10, // 最大显示10条变更记录
+      repoUrl: 'https://github.com/fishcpy-cloud/cnae-docs' // 假设的仓库URL，实际使用时需修改为真实地址
+    },
     footer: {
       copyright: '© 2025 fishcpy cloud All rights reserved',
     },
