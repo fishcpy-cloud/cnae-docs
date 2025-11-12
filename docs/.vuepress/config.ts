@@ -19,6 +19,8 @@ export default defineUserConfig({
     },
     logo: '',
     repo: '',
+    // 设置全局版权协议为CC-BY-NC-SA-4.0（署名—非商业性使用—相同方式共享 4.0）
+    copyright: 'CC-BY-NC-SA-4.0',
     footer: {
       copyright: '© 2025 fishcpy cloud All rights reserved',
     },
