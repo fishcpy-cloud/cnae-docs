@@ -48,7 +48,10 @@ export default defineUserConfig({
       ],
       // 其他目录的侧边栏可以在这里添加
       '/config/': [],
-      '/guide/': []
+      '/guide/': [
+        { text: '优选配置指南', link: '/guide/' },
+        { text: 'Vercel 优选指南', link: '/guide/vercel/' }
+      ]
     },
     plugins: {
       // 启用git插件以在开发环境也能显示贡献者信息
