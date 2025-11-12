@@ -21,6 +21,11 @@ export default defineUserConfig({
     repo: '',
     // 设置全局版权协议为CC-BY-NC-SA-4.0（署名—非商业性使用—相同方式共享 4.0）
     copyright: 'CC-BY-NC-SA-4.0',
+    // 启用文章贡献者功能，设置为block模式显示完整信息
+    contributors: {
+      mode: 'block',
+      avatar: true
+    },
     footer: {
       copyright: '© 2025 fishcpy cloud All rights reserved',
     },
@@ -39,6 +44,10 @@ export default defineUserConfig({
       // 其他目录的侧边栏可以在这里添加
       '/config/': [],
       '/guide/': []
+    },
+    plugins: {
+      // 启用git插件以在开发环境也能显示贡献者信息
+      git: true
     }
   }),
 })
