@@ -8,7 +8,7 @@
 
 本指南分为以下几个部分：
 
-- **cloudflare**：cloudflare优选
+- **[cloudflare](cloudflare/)**：cloudflare优选
 - **[vercel](vercel/)**：vercel优选
 - **[netlify](netlify/)**：netlify优选
 - **[edgeone](edgeone/)**：edgeone优选

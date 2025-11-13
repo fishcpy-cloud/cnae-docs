@@ -53,6 +53,7 @@ export default defineUserConfig({
         { text: 'Vercel 优选指南', link: '/guide/vercel/' },
         { text: 'Netlify 优选指南', link: '/guide/netlify/' },
         { text: 'Edgeone 优选指南', link: '/guide/edgeone/' },
+        { text: 'Cloudflare 优选指南', link: '/guide/cloudflare/' },
         { text: '云驰互联 优选指南', link: '/guide/zyidc/overseas/' }
       ]
     },

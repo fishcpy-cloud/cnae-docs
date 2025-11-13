@@ -1,0 +1,122 @@
+# Cloudflare 优选指南
+
+::: tip
+# 需要自备一张银行卡，可以使用虚拟卡，如YPT
+:::
+
+首先前往你要使用的域名的控制台开通自定义主机名并绑定银行卡
+
+![自定义主机名](../../_notes/img/cloudflare/saas.png)
+
+## CDN
+
+回到DNS处
+
+![DNS](../../_notes/img/cloudflare/dns.png)
+
+![源站ip](../../_notes/img/cloudflare/cdn/ip.png)
+
+### 源站域名
+
+添加一个A记录，指向你的源站的IP，并开启小黄云
+
+| 占位符 | 说明 | 示例 |
+| --- | --- | --- |
+| `名称` | 可替换为任意字符串 | `origin-1`<br>`ip` |
+| `IPv4 地址` | 可替换为你的源站ip | `1.1.1.1`<br>`2.2.2.2` |
+
+### 优选ip域名
+
+再添加一个cname记录，cname到优选域名
+
+![优选ip](../../_notes/img/cloudflare/cdn/cname.png)
+
+| 占位符 | 说明 | 示例 |
+| --- | --- | --- |
+| `名称` | 可替换为任意字符串 | `saas`<br>`cdn` |
+| `目标` | 可替换为优选域名 | `123.cloudflare.cnae.top`<br>`abc.cloudflare.byoip.top` |
+
+回到自定义主机名
+
+![自定义主机名](../../_notes/img/cloudflare/saas.png)
+
+添加回退源，指向你添加的A记录的域名，点击添加回退源
+
+![回退源](../../_notes/img/cloudflare/cdn/saas-1.png)
+
+随后点击添加自定义主机名
+
+### 对于单域名，即回退源和要优选域名的跟域名一致
+
+![单域名](../../_notes/img/cloudflare/cdn/saas-d.png)
+
+| 占位符 | 说明 | 示例 |
+| --- | --- | --- |
+| `自定义主机名` | 你要被优选的域名 | `www.fishicp.dpdns.org` |
+| `自定义源服务器` | 必须选择自定义源服务器选项，如果有其他源站，可填写其他源站的域名 | `origin.fishicp.dpdns.org` |
+
+其他选项请使用默认值
+
+### 对于双域名，即回退源和要优选的域名跟域名不一致
+
+![单域名](../../_notes/img/cloudflare/cdn/saas-s.png)
+
+| 占位符 | 说明 | 示例 |
+| --- | --- | --- |
+| `自定义主机名` | 你要被优选的域名 | `www.cnae.top` |
+| `自定义源服务器` | 自定义源服务器选项，如果有其他源站，可填写其他源站的域名 | `origin.fishicp.dpdns.org` |
+
+其他选项请使用默认值
+
+## 优选配置
+
+点击添加自定义主机名(这里以双域名为例)
+
+![域名](../../_notes/img/cloudflare/cdn/saas-host.png)
+
+单域名主机名状态正常应会自动验证，如果没有自动验证添加txt记录即可
+
+::: tip
+如果dns为cloudflare，则需删除跟域名，仅保留`_cf-custom-hostname.子域名`即可
+:::
+
+![主机名状态](../../_notes/img/cloudflare/cdn/saas-hostname.png)
+
+`_cf-custom-hostname.你要优选的域名` txt记录 值为cloudflare提供的txt记录
+
+添加完主机名验证后，继续添加证书验证，如果要证书自动续签，请查看[证书自动续签](#证书自动续签)部分
+
+`_acme-challenge.你要优选的域名` txt记录 值为cloudflare提供的txt记录
+
+::: tip
+如果dns为cloudflare，则需删除跟域名，仅保留`_acme-challenge.子域名`即可
+:::
+
+![证书](../../_notes/img/cloudflare/cdn/saas-ssl.png)
+
+最后添加cname记录指向[优选ip域名](#优选ip域名)中的域名即可
+
+![优选ip](../../_notes/img/cloudflare/cdn/saas-cname.png)
+
+过一会点击刷新按钮，应会显示如下状态
+
+![主机名状态](../../_notes/img/cloudflare/cdn/saas-hostname-1.png)
+
+## 证书自动续签
+
+拉倒自定义主机名页面底部，cloudflare会为每个开通自定义主机名的域名提供一个DCV 委派
+
+![DCV](../../_notes/img/cloudflare/cdn/saas-dcv.png)
+
+将`_acme-challenge.你要优选的域名`从txt改为cname，并指向DCV 委派分配的域名
+
+::: tip
+如果`_acme-challenge.你要优选的域名`添加过txt记录，请删除，否则会影响cname记录的工作
+:::
+
+![DCV-cname](../../_notes/img/cloudflare/cdn/dcv-cname.png)
+
+::: tip
+www.cnae.top.dbd3f6833b9e93c8.dcv.cloudflare.com这个cname记录仅适用于我的域名<br/>
+如果是你的域名应为`被优选域名.cloudflare分配的dcv记录`
+:::

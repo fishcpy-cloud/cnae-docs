@@ -37,7 +37,6 @@ pnpm build
 - `docs/`: 文档内容
   - `.vuepress/`: VuePress 配置
   - `api/`: API 文档
-  - `config/`: 配置文档
   - `guide/`: 使用指南
 - `package.json`: 项目配置和依赖
 
