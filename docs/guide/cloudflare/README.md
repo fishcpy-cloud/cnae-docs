@@ -8,7 +8,7 @@
 
 ![自定义主机名](../../_notes/img/cloudflare/saas.png)
 
-## CDN
+## CDN优选
 
 回到DNS处
 
@@ -101,6 +101,28 @@
 过一会点击刷新按钮，应会显示如下状态
 
 ![主机名状态](../../_notes/img/cloudflare/cdn/saas-hostname-1.png)
+
+## Pages优选
+
+### 如果你的DNS提供商支持分线路
+
+则默认解析设为`xxx.pages.dev`，将中国大陆地区设为`*.cloudflare.cnae.top`
+
+| 占位符 | 说明 | 示例 |
+| --- | --- | --- |
+| `*` | 可替换为任意字符串 | `myapp.cloudflare.byoip.top`<br>`web.cloudflare.cnae.top`<br>`www.example.com.cloudflare.cnae.top` |
+
+### 如果你的DNS提供商不支持分线路
+
+::: tip
+不确定证书是否会自动续签
+:::
+
+则将默认分配的`xxx.pages.dev`换为`*.cloudflare.cnae.top`
+
+| 占位符 | 说明 | 示例 |
+| --- | --- | --- |
+| `*` | 可替换为任意字符串 | `myapp.cloudflare.byoip.top`<br>`web.cloudflare.cnae.top`<br>`www.example.com.cloudflare.cnae.top` |
 
 ## 证书自动续签
 
