@@ -10,6 +10,14 @@ export default defineUserConfig({
   base: '/',
   // 设置输出目录为相对路径的dist
   dest: 'dist',
+  // 添加umami统计代码
+  head: [
+    ['script', {
+      defer: true,
+      src: 'https://um.cnae.top/script.js',
+      'data-website-id': '0fed0870-7949-479a-95f4-56f1be5ffc54'
+    }]
+  ],
   theme: plumeTheme({
     // 主题配置
     themeColor: '#46bd87',
@@ -29,7 +37,7 @@ export default defineUserConfig({
     // 启用文章变更历史功能
     changelog: {
       maxCount: 10, // 最大显示10条变更记录
-      repoUrl: 'https://github.com/fishcpy-cloud/cnae-docs' // 假设的仓库URL，实际使用时需修改为真实地址
+      repoUrl: 'https://github.com/fishcpy-cloud/cnae-docs' // 仓库URL
     },
     footer: {
       copyright: '© 2025 fishcpy cloud All rights reserved',
@@ -58,7 +66,7 @@ export default defineUserConfig({
       ]
     },
     plugins: {
-      // 启用git插件以在开发环境也能显示贡献者信息
+      // 启用git插件并配置显示提交记录
       git: true
     }
   }),
