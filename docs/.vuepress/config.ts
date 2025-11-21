@@ -6,12 +6,18 @@ export default defineUserConfig({
   bundler: viteBundler(),
   lang: 'zh-CN',
   title: 'CNAE Docs',
-  description: '一个基于 VuePress 的CNAE Docs',
+  description: 'CNAE 文档中心 - 提供 API 文档、Vercel/Netlify/Edgeone/Cloudflare/云驰互联 优选配置指南和详细使用说明',
   base: '/',
   // 设置输出目录为相对路径的dist
   dest: 'dist',
-  // 添加umami统计代码
+  // SEO优化和统计代码配置
   head: [
+    // SEO相关元标签
+    ['meta', { name: 'keywords', content: 'CNAE, API文档, Vercel, Netlify, Edgeone, Cloudflare, 云驰互联, 优选配置, 技术文档' }],
+    ['meta', { name: 'robots', content: 'index, follow' }],
+    ['link', { rel: 'canonical', href: 'https://docs.cnae.top/' }],
+    ['meta', { name: 'author', content: 'fishcpy cloud' }],
+    // umami统计代码
     ['script', {
       defer: true,
       src: 'https://um.cnae.top/script.js',
