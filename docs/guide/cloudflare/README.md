@@ -124,6 +124,65 @@
 | --- | --- | --- |
 | `*` | 可替换为任意字符串 | `myapp.cloudflare.byoip.top`<br>`web.cloudflare.cnae.top`<br>`www.example.com.cloudflare.cnae.top` |
 
+## tunnel优选
+
+打开 [Cloudflare Zero Trust 控制台](https://one.dash.cloudflare.com)，点击你的设备，点击编辑，来到图片中的页面
+
+![所有域名](../../_notes/img/cloudflare/tunnel/all-domain.png)
+
+### 添加回退源
+
+点击添加"添加已发布应用程序路由"，随便添加一个子域名(需要在自定义主机名域名下的子域名)
+
+::: tip
+下图添加的域名不用于公共访问，仅作为回源使用
+:::
+
+![回源](../../_notes/img/cloudflare/tunnel/origin-domain.png)
+
+| 占位符 | 说明 |
+| --- | --- |
+| `类型` | 随便选一个，建议为`HTTP`或`HTTPS` |
+| `URL` | 随便，建议为`127.0.0.1` |
+
+点击"保存"
+
+### 添加公开访问域名
+
+::: tip
+创建域名，等于让cloudflare知道应该从这回源<br/>
+如果源站有证书可以选择https端口并使用https协议回源，反之则使用http端口和http协议
+:::
+
+#### 对于在cloudflare的域名
+
+![在cloudflare的域名](../../_notes/img/cloudflare/tunnel/domain-cf.png)
+
+点击"保存"<br/>
+回到cloudflare控制台，点击添加的主域名，点击dns记录，删除之前添加的cname记录
+
+![删除cname记录](../../_notes/img/cloudflare/tunnel/domain-cf.png)
+
+点击"删除"
+
+#### 对于不在cloudflare的域名
+
+![不在cloudflare的域名](../../_notes/img/cloudflare/tunnel/domain-no-cf.png)
+
+此时直接回车，即可添加<br/>
+点击"保存"
+
+### 添加自定义主机名
+
+![自定义主机名](../../_notes/img/cloudflare/tunnel/saas.png)
+
+| 占位符 | 说明 |
+| --- | --- |
+| `自定义主机名` | 为[添加公开访问域名](#添加公开访问域名)部分添加的域名 |
+| `自定义源服务器` | 为[添加回退源](#添加回退源)部分添加的域名 |
+
+其他部分(单域名优选等)请按照[优选配置](#优选配置)部分进行配置
+
 ## 证书自动续签
 
 拉倒自定义主机名页面底部，cloudflare会为每个开通自定义主机名的域名提供一个DCV 委派
