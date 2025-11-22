@@ -161,7 +161,7 @@
 点击"保存"<br/>
 回到cloudflare控制台，点击添加的主域名，点击dns记录，删除之前添加的cname记录
 
-![删除cname记录](../../_notes/img/cloudflare/tunnel/domain-cf.png)
+![删除cname记录](../../_notes/img/cloudflare/tunnel/domain-cf-dns.png)
 
 点击"删除"
 
