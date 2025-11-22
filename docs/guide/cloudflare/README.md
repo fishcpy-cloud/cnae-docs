@@ -163,7 +163,7 @@
 
 ![删除cname记录](../../_notes/img/cloudflare/tunnel/domain-cf-dns.png)
 
-点击"删除"
+点击`删除`
 
 #### 对于不在cloudflare的域名
 
