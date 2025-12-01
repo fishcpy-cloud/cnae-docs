@@ -13,6 +13,7 @@
 - **[netlify](netlify/)**：netlify优选
 - **[edgeone](edgeone/)**：edgeone优选
 - **[zyidc](zyidc/overseas/)**：zyidc cdn优选
+- **[1k4](1k4/overseas/)**：1k4 cdn优选
 
 ## 开始配置
 
