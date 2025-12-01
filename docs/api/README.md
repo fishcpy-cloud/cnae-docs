@@ -4,7 +4,10 @@
 
 ## 子目录列表
 
-- [zyidc 海外IP模块](./zyidc/overseas/)
+- [zyidc(亚太)IP](./zyidc/overseas/)
+  - 获取海外IP地址列表的API文档
+
+- [1k4(亚太)IP](./1k4/overseas/)
   - 获取海外IP地址列表的API文档
 
 ## API 使用指南

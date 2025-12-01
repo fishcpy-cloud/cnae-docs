@@ -58,7 +58,8 @@ export default defineUserConfig({
       // API文档侧边栏配置
       '/api/': [
         { text: 'API 总览', link: '/api/' },
-        { text: 'zyidc API', link: '/api/zyidc/overseas/' }
+        { text: '1k4(亚太)API', link: '/api/1k4/overseas/' },
+        { text: 'zyidc(亚太)API', link: '/api/zyidc/overseas/' }
       ],
       // 其他目录的侧边栏可以在这里添加
       '/config/': [],
@@ -68,6 +69,7 @@ export default defineUserConfig({
         { text: 'Netlify 优选指南', link: '/guide/netlify/' },
         { text: 'Edgeone 优选指南', link: '/guide/edgeone/' },
         { text: 'Cloudflare 优选指南', link: '/guide/cloudflare/' },
+        { text: '1k4亚太CDN', link: '/guide/1k4/overseas/' },
         { text: '云驰互联 优选指南', link: '/guide/zyidc/overseas/' }
       ]
     },
